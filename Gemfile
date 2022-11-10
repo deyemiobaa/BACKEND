@@ -56,4 +56,6 @@ group :development do
   gem 'bullet'
 end
 
+gem 'activestorage-cloudinary-service'
+gem 'cloudinary'
 gem 'jsonapi-serializer', '~> 2.2'

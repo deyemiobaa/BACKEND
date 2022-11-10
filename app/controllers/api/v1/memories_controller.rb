@@ -4,7 +4,8 @@ class Api::V1::MemoriesController < ApplicationController
 
   # GET /api/v1/memories
   def index
-    @api_v1_memories = Api::V1::Memory.includes(image_attachment: :blob).where(user: current_user).order(created_at: :desc)
+    user = current_user
+    @api_v1_memories = Api::V1::Memory.includes(image_attachment: :blob).where(user: user).order(created_at: :desc)
     memories_data = {}
     @api_v1_memories.each do |memory|
       date = memory.created_at.strftime('%Y %B')
@@ -25,7 +26,7 @@ class Api::V1::MemoriesController < ApplicationController
     public_memories_data = []
     @api_v1_memories.each do |memory|
       data = {
-        name: memory.user.name, 
+        name: memory.user.name,
         memory: Api::V1::MemorySerializer.new(memory).serializable_hash[:data][:attributes]
       }
       public_memories_data << data
