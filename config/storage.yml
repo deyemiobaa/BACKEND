@@ -8,6 +8,6 @@ local:
 
 cloudinary:
   service: Cloudinary
-  cloud_name: deyemiobaa
+  cloud_name: dwsnfnzwt
   api_key: <%= ENV['API_KEY'] %>
-  api_secret: <%= ENV['API_SECRET_KEY'] %>
+  api_secret: <%= ENV['API_SECRET'] %>
